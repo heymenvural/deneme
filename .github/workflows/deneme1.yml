@@ -1,0 +1,13 @@
+name: Print Message on Push
+
+on:
+  push:
+    paths:
+      - text.txt
+
+jobs:
+ 
+      run: |
+        echo "Eymen Vural"
+
+   
