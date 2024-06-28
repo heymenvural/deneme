@@ -1,0 +1,22 @@
+name: Print Message on Push
+
+on:
+  push:
+    paths:
+      - message.txt
+
+jobs:
+  print_message:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Read message
+      id: read_message
+      run: |
+        echo "::set-output name=message::$(cat message.txt)"
+
+    - name: Print message
+      run: echo "${{ steps.read_message.outputs.message }}"
