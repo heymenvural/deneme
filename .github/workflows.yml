@@ -1,0 +1,26 @@
+name: Pull Request Workflow
+
+on:
+  pull_request:
+    branches:
+      - master
+      - dev
+
+jobs:
+  pull_request_job:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Print fixed message
+      run: echo "Pull request received: eymen vural harun"
+
+    - name: Print content of text.txt if it exists
+      run: |
+        if [ -f text.txt ]; then
+          cat text.txt
+        else
+          echo "text.txt does not exist"
+        fi
