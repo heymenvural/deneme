@@ -2,8 +2,9 @@ name: Print Message
 
 on:
   push:
-    paths:
-      - text.txt
+    branches:
+      - master
+      - dev
 
 jobs:
   print_message:
